@@ -29,7 +29,8 @@ class TestTimeSeriesOD(unittest.TestCase):
             random_state=42)[0]
 
     def test_fit_univariate(self):
-        clf = TimeSeriesOD(window_size=20, contamination=0.1)
+        # Keep the scoring window narrow enough to resolve point anomalies.
+        clf = TimeSeriesOD(window_size=10, contamination=0.1)
         clf.fit(self.X_train)
         assert hasattr(clf, 'decision_scores_')
         assert len(clf.decision_scores_) == 500

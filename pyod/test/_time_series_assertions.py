@@ -14,4 +14,4 @@ def assert_scores_separate_labels(y, scores):
     assert np.unique(np.round(scores, 8)).size > 1, \
         'detector returned constant scores'
     lift = detection_lift(y, scores)
-    assert lift > 1.1, 'detector scores do not separate the fixture labels'
+    assert lift > 2.7, 'detector scores do not separate the fixture labels'
